@@ -13,12 +13,17 @@ while (!userName) {
   } else alert("Sorry, I didn't have my hearing aids in..."); 
 
 };
-// console.log("userName", userName, typeof(userName));
 
-
-
-
-
-
-// let resultFromTypeOf = typeof(someData);
-// console.log(resultFromTypeOf);
+document.getElementById("start").addEventListener("click", ()=>{
+  let answer1 = prompt(`?`);
+  alert(``);
+  let answer2 = prompt(``);
+  alert(``);
+  let answer3 = prompt(``);
+  alert(``);
+  let answer4 = prompt(``);
+  alert(``);
+  let answer5 = prompt(`One more question. ...?`);
+  alert(``);
+});
+// INCOMPLETE, need to add answer evaluation and responses, CSS styling for all elements, etc.

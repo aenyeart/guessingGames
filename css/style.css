@@ -5,3 +5,11 @@ body {
 h1 {
   color: goldenrod;
 }
+button {
+  background-color: #C5FCE4;
+  color: rgb(30, 104, 76);
+  border: solid 2px rgb(30, 104, 76);;
+  border-radius: 4px;
+  display: block;
+  margin: 10px auto;
+}
