@@ -11,9 +11,9 @@
 
 - [x]Include a short biography, your education history, an overview of your job experience, and any goals that you may have.
 - [ ]Create an About Me guessing game that utilizes HTML, CSS, & JavaScript.
-  - [ ]Prompt the user a total of exactly five yes or no questions.
-    - [ ] Must accept either y/n or yes/no responses  
-    - [ ] Normalize the user input so that it can be validated  
+  - [x]Prompt the user a total of exactly five yes or no questions.
+    - [x] Must accept either y/n or yes/no responses  
+    - [x] Normalize the user input so that it can be validated  
     - [ ] Let the user know if they answered the question correctly by alerting them with a response.
       - [ ] use console.log, switch to alerts when complete
 
