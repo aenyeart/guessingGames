@@ -1,17 +1,12 @@
 # lab-02
 
- 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+## Resources Used 
+- CSS reset from https://meyerweb.com/eric/tools/css/reset/ 
 - [ ] 
 
-##Instructions
+
+## Instructions
+
 1. As a user, I would like to learn about the site owner so I can get to know them better..
   - [ ]Include a short biography, your education history, an overview of your job experience, and any goals that you may have.
   - [ ]Create an About Me guessing game that utilizes HTML, CSS, & JavaScript.
