@@ -12,22 +12,22 @@
 //     alert("Sorry, I didn't have my hearing aids in...");
 //   }
 // };
- 
+
 function guessingGame() {
 
-  let usrAnswer; 
-  let feedbackString = ''; 
+  let userAnswer;
+  let feedbackString = '';
   const questionArray = [
     {
       question: `DO I HAVE ANY PETS?  (Y/N)`,
       answer: 'Y',
       info: `I have one cat named 'Cynar' (CHEE-nar). I adopted him in May 2021. He is named after of one of my favorite bittersweet Italian liqueurs. Unlike the liqueur, MY Cynar is only sweet.`
-    }
+    },
     {
       question: `DO I LIVE ON THE EAST COAST?  (Y/N)`,
       answer: 'N',
       info: `I live on the WEST Coast, in Seattle, Washington. (I did live in Georgia for five years, though.)`
-    }
+    },
     {
       question: `AM I CLEVER?  (Y/N)`,
       answer: undefined,
@@ -36,7 +36,7 @@ function guessingGame() {
     {
       question: `DO I WORK ON CARS FOR FUN?  (Y/N)`,
       answer: 'N',
-      info:  `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
+      info: `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
     }
     {
       question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
@@ -45,23 +45,21 @@ function guessingGame() {
     }
   ];
 
-  usrAnswer = prompt(); // local scope 
-  usrAnswer = usrAnswer.toUpperCase();
-  if (usrAnswer === 'Y' || usrAnswer === 'YES') { // usrAnswer is correct 
-    feedbackString = "Correct! ";
-  } else { // usrAnswer is wrong or invalid
-    feedbackString = "Nope! ";
-  } 
-  feedbackString += ""; // fact about me
-  alert(feedbackString); // displays the compiled feedback message to user
-
-  // usrAnswer = prompt(`DO I LIVE ON THE EAST COAST?  (Y/N)`);
-  // usrAnswer = prompt(`AM I CLEVER?  (Y/N)`);
-  // usrAnswer = prompt(`DO I WORK ON CARS FOR FUN?  (Y/N)`);
-  // usrAnswer = prompt(`Last question! AM I AN ALGORITHM?  (Y/N)`);
-
-
+  for (let i = 0; i < questionArray.length - 1; i++) {
+    userAnswer = prompt(questionArray[i].question); // local scope 
+    userAnswer = userAnswer.toUpperCase();
+    if (userAnswer === questionArray.answer) { // userAnswer is correct 
+      feedbackString = "Correct! ";
+    } else if (userAnswer === null) { 
+      break; // cancel button
+    } else { // userAnswer is wrong or invalid
+      feedbackString = "Incorrect! ";
+    }
+    feedbackString += questionArray.info; // fact about me
+    alert(feedbackString); // displays the compiled feedback message to user
+  };
 };
 
 document.getElementById("start").addEventListener("click", guessingGame);
-// INCOMPLETE, need to add answer evaluation and responses, CSS styling for all elements, etc.
+
+// INCOMPLETE, need to add CSS styling for all elements, etc.
