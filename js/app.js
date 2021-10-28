@@ -12,14 +12,12 @@
 //     alert("Sorry, I didn't have my hearing aids in...");
 //   }
 // };
-
+ 
 function guessingGame() {
-  
-  //  I want SO BAD to write this with arrays, loops, helper functions, etc. It's challenging to tune out my thoughts about edge cases in order to write it in a simpler, but less elegant way.
 
-  let usrAnswer; // Placeholder for user's answer
-  let feedback = ''; // Placeholder to build string to respond to user's answer
-  let questionArray = [
+  let usrAnswer; 
+  let feedbackString = ''; 
+  const questionArray = [
     {
       question: `DO I HAVE ANY PETS?  (Y/N)`,
       answer: 'Y',
@@ -50,12 +48,12 @@ function guessingGame() {
   usrAnswer = prompt(); // local scope 
   usrAnswer = usrAnswer.toUpperCase();
   if (usrAnswer === 'Y' || usrAnswer === 'YES') { // usrAnswer is correct 
-    feedback = "Correct! ";
+    feedbackString = "Correct! ";
   } else { // usrAnswer is wrong or invalid
-    feedback = "Nope! ";
+    feedbackString = "Nope! ";
   } 
-  feedback += ""; // fact about me
-  alert(feedback); // displays the compiled feedback message to user
+  feedbackString += ""; // fact about me
+  alert(feedbackString); // displays the compiled feedback message to user
 
   // usrAnswer = prompt(`DO I LIVE ON THE EAST COAST?  (Y/N)`);
   // usrAnswer = prompt(`AM I CLEVER?  (Y/N)`);
