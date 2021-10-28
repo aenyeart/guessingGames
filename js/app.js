@@ -17,25 +17,49 @@ function guessingGame() {
   
   //  I want SO BAD to write this with arrays, loops, helper functions, etc. It's challenging to tune out my thoughts about edge cases in order to write it in a simpler, but less elegant way.
 
+  let usrAnswer; // Placeholder for user's answer
   let feedback = ''; // Placeholder to build string to respond to user's answer
-  let usrAnswer;
-  
-  usrAnswer = prompt(`DO I HAVE ANY PETS?  (Y/N)`); // local scope 
+  let questionArray = [
+    {
+      question: `DO I HAVE ANY PETS?  (Y/N)`,
+      answer: 'Y',
+      info: `I have one cat named 'Cynar' (CHEE-nar). I adopted him in May 2021. He is named after of one of my favorite bittersweet Italian liqueurs. Unlike the liqueur, MY Cynar is only sweet.`
+    }
+    {
+      question: `DO I LIVE ON THE EAST COAST?  (Y/N)`,
+      answer: 'N',
+      info: `I live on the WEST Coast, in Seattle, Washington. (I did live in Georgia for five years, though.)`
+    }
+    {
+      question: `AM I CLEVER?  (Y/N)`,
+      answer: undefined,
+      info: `That was a trick question. Cleverness is subjective and relative, just like beauty and meaning, so whether you think I am clever or you don't, you are correct either way.`
+    }
+    {
+      question: `DO I WORK ON CARS FOR FUN?  (Y/N)`,
+      answer: 'N',
+      info:  `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
+    }
+    {
+      question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
+      answer: 'Y',
+      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms that we have assembled in our mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think _____ right now!', there is certainly a part of YOU that lives on despite your body's death.`
+    }
+  ];
+
+  usrAnswer = prompt(); // local scope 
   usrAnswer = usrAnswer.toUpperCase();
   if (usrAnswer === 'Y' || usrAnswer === 'YES') { // usrAnswer is correct 
     feedback = "Correct! ";
   } else { // usrAnswer is wrong or invalid
     feedback = "Nope! ";
   } 
-  feedback += "I have one cat name 'Cynar' (CHEE-nar). I adopted him in May 2021. 'Cynar' is also the name of one of my favorite bittersweet Italian liqueurs."; // fact about me
+  feedback += ""; // fact about me
   alert(feedback); // displays the compiled feedback message to user
 
   // usrAnswer = prompt(`DO I LIVE ON THE EAST COAST?  (Y/N)`);
-
   // usrAnswer = prompt(`AM I CLEVER?  (Y/N)`);
-
   // usrAnswer = prompt(`DO I WORK ON CARS FOR FUN?  (Y/N)`);
-
   // usrAnswer = prompt(`Last question! AM I AN ALGORITHM?  (Y/N)`);
 
 
