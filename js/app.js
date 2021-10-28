@@ -66,6 +66,9 @@ function guessingGame() {
     console.log(feedbackString);
     alert(feedbackString); // displays the compiled feedback message to user
   };
+  
+
+
   console.log(`Thanks for taking some time to get to know me better, ${userName}!`);
   alert(`Thanks for taking some time to get to know me better, ${userName}!`);
 };
