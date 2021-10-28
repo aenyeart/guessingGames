@@ -20,8 +20,8 @@ function guessingGame() {
 
   if (userName === null) { // assigns a name in case user cancelled/didn't enter a name
     userName = `so-and-so`;
-  };
-  
+  }
+  let score = 0;  
   let userAnswer; // local scope 
   let feedbackString = '';
   const questionArray = [ // array of objects to avoid nested loops
@@ -52,21 +52,38 @@ function guessingGame() {
     }
   ];
 
-  for (let i = 0; i < questionArray.length; i++) {
-    userAnswer = prompt(questionArray[i].question); 
-    userAnswer = userAnswer.toUpperCase();
-    if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
-      feedbackString = "Correct! ";
-    } else if (userAnswer === null) {
-      break; // cancel button
-    } else { // userAnswer is wrong or invalid
-      feedbackString = "Incorrect! ";
+  // for (let i = 0; i < questionArray.length; i++) {
+  //   userAnswer = prompt(questionArray[i].question); 
+  //   userAnswer = userAnswer.toUpperCase();
+  //   if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
+  //     feedbackString = "Correct! ";
+  //   } else if (userAnswer === null) {
+  //     break; // cancel button
+  //   } else { // userAnswer is wrong or invalid
+  //     feedbackString = "Incorrect! ";
+  //   }
+  //   feedbackString += questionArray[i].info; // fact about me
+  //   console.log(feedbackString);
+  //   alert(feedbackString); // displays the compiled feedback message to user
+  // };
+
+  let randomNum = Math.floor((Math.random()*100)+1);
+  for (let i = 0; i<4; i++) {
+    let tries = Math.abs(i - 4);
+    let numGuess = prompt(`I'M THINKING OF A NUMBER BETWEEN 1 AND 100... Take a guess! You've got ${tries} tries.`);
+    numGuess = parseInt(numGuess); 
+    if (numGuess === randomNum) {
+      alert(`That's CORRECT! Great job!`);
+      score++;
+      console.log(score);
+      break;
     }
-    feedbackString += questionArray[i].info; // fact about me
-    console.log(feedbackString);
-    alert(feedbackString); // displays the compiled feedback message to user
-  };
-  
+    if (numGuess > randomNum) alert(`Hmm, that's too high.`);
+    if (numGuess < randomNum) alert(`Bummer. That's too low!`);
+    if (i === 3) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
+  }
+    
+
 
 
   console.log(`Thanks for taking some time to get to know me better, ${userName}!`);
@@ -75,4 +92,4 @@ function guessingGame() {
 
 document.getElementById("start").addEventListener("click", guessingGame);
 
-// INCOMPLETE, need to add CSS styling for all elements, etc.
+// TODO: Add score incrementer to first 5

@@ -25,9 +25,9 @@
 
 # lab-03
 
-- [ ] Create a “Top Ten” ordered list at the bottom of the page.
+- [x] Create a “Top Ten” ordered list at the bottom of the page.
 
-- [ ] Convert work experience and education summary into an unordered list using HTML
+- [x] Convert work experience and education summary into an unordered list using HTML
 
 - [ ] Add 6th question to the guessing game that takes in a numeric input by prompting the user to guess a number.
   - [ ] Indicates through an alert if the guess is “too high” or “too low”.
