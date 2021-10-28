@@ -21,7 +21,7 @@ function guessingGame() {
   if (userName === null) { // assigns a name in case user cancelled/didn't enter a name
     userName = `so-and-so`;
   }
-  let score = 0;  
+  let score = 0;
   let userAnswer; // local scope 
   let feedbackString = '';
   const questionArray = [ // array of objects to avoid nested loops
@@ -67,11 +67,11 @@ function guessingGame() {
   //   alert(feedbackString); // displays the compiled feedback message to user
   // };
 
-  let randomNum = Math.floor((Math.random()*100)+1);
-  for (let i = 0; i<4; i++) {
+  let randomNum = Math.floor((Math.random() * 100) + 1);
+  for (let i = 0; i < 4; i++) {
     let tries = Math.abs(i - 4);
     let numGuess = prompt(`I'M THINKING OF A NUMBER BETWEEN 1 AND 100... Take a guess! You've got ${tries} tries.`);
-    numGuess = parseInt(numGuess); 
+    numGuess = parseInt(numGuess);
     if (numGuess === randomNum) {
       alert(`That's CORRECT! Great job!`);
       score++;
@@ -82,7 +82,28 @@ function guessingGame() {
     if (numGuess < randomNum) alert(`Bummer. That's too low!`);
     if (i === 3) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
   }
-    
+
+  for (let i = 6; i > 0; i--) {
+    let nameArray = [
+      "RACHEL",
+      "JUDY",
+      "SARAH",
+      "CATHY",
+      "DOUG"
+    ]
+    let tries = 6;
+    let nameGuess = prompt(`I have three sisters, a mother, and a father all with common names. Can you guess any of their names in ${tries} tries? (Only guess ONE name at a time.)`);
+    nameGuess = nameGuess.toUpperCase();
+    for (let i = 0; i < nameArray.length; i++) {
+      if (nameGuess === nameArray[i]) {
+        alert(`That's CORRECT! Great job!`);
+        score++;
+        console.log(score);
+        break;
+      } 
+    } alert(`Sorry! Nobody with the name ${nameGuess} in my family!`);
+    if (i === 5) alert(`Bummer, you're all out of guesses! My family's names are ${nameArray}.`);
+  }
 
 
 
