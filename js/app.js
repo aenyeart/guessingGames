@@ -1,23 +1,24 @@
 'use strict';
 
-// let userName; // global scope
-// while (userName === undefined) {
-//   userName = prompt("Hey there! I'm Andrew. What is your name?");
-//   if (userName === null) {
-//     alert("Oh, no worries. Bye!");
-//     break;
-//   } else if (userName) {
-//     alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
-//   } else {
-//     alert("Sorry, I didn't have my hearing aids in...");
-//   }
-// };
+let userName; // global scope
+while (userName === undefined) {
+  userName = prompt("Hey there! I'm Andrew. What is your name?");
+  if (userName === null) {
+    alert("Oh, no worries. Bye!");
+    break;
+  } else if (userName) {
+    alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
+  } else {
+    alert("Sorry, I didn't have my hearing aids in...");
+  }
+};
 
 function guessingGame() {
 
+  
   let userAnswer;
   let feedbackString = '';
-  const questionArray = [
+  const questionArray = [ // array of objects to avoid nested loops
     {
       question: `DO I HAVE ANY PETS?  (Y/N)`,
       answer: 'Y',
@@ -30,32 +31,32 @@ function guessingGame() {
     },
     {
       question: `AM I CLEVER?  (Y/N)`,
-      answer: undefined,
+      answer: "SUBJECTIVE",
       info: `That was a trick question. Cleverness is subjective and relative, just like beauty and meaning, so whether you think I am clever or you don't, you are correct either way.`
-    }
+    },
     {
       question: `DO I WORK ON CARS FOR FUN?  (Y/N)`,
       answer: 'N',
       info: `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
-    }
+    },
     {
       question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
       answer: 'Y',
-      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms that we have assembled in our mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think _____ right now!', there is certainly a part of YOU that lives on despite your body's death.`
+      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms--their mind--that we have constructed and stored in our OWN mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think _____ right now!', there is certainly a part of YOU that lives on in a conscious mind despite your body's death.`
     }
   ];
 
-  for (let i = 0; i < questionArray.length - 1; i++) {
+  for (let i = 0; i < questionArray.length; i++) {
     userAnswer = prompt(questionArray[i].question); // local scope 
     userAnswer = userAnswer.toUpperCase();
-    if (userAnswer === questionArray.answer) { // userAnswer is correct 
+    if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
       feedbackString = "Correct! ";
-    } else if (userAnswer === null) { 
+    } else if (userAnswer === null) {
       break; // cancel button
     } else { // userAnswer is wrong or invalid
       feedbackString = "Incorrect! ";
     }
-    feedbackString += questionArray.info; // fact about me
+    feedbackString += questionArray[i].info; // fact about me
     alert(feedbackString); // displays the compiled feedback message to user
   };
 };
