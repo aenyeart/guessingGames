@@ -1,14 +1,17 @@
 'use strict';
 
 let userName; // global scope
-while (userName === undefined) {
+while (!userName) { // catches all cases of no name input
   userName = prompt("Hey there! I'm Andrew. What is your name?");
   if (userName === null) {
+    console.log("Oh, no worries. Bye!");
     alert("Oh, no worries. Bye!");
     break;
   } else if (userName) {
+    console.log(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
     alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
   } else {
+    console.log("Sorry, I didn't have my hearing aids in...");
     alert("Sorry, I didn't have my hearing aids in...");
   }
 };
@@ -16,10 +19,10 @@ while (userName === undefined) {
 function guessingGame() {
 
   if (userName === null) { // assigns a name in case user cancelled/didn't enter a name
-    userName = "So-and-so";
+    userName = `so-and-so`;
   };
   
-  let userAnswer;
+  let userAnswer; // local scope 
   let feedbackString = '';
   const questionArray = [ // array of objects to avoid nested loops
     {
@@ -45,12 +48,12 @@ function guessingGame() {
     {
       question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
       answer: 'Y',
-      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms--their mind--that we have constructed and stored in our OWN mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think _____ right now!', there is certainly a part of YOU that lives on in a conscious mind despite your body's death.`
+      info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms--their mind--that we have constructed and stored in our OWN mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think such-and-such right now!', there is certainly a part of YOU that lives on in a conscious mind despite your body's death.`
     }
   ];
 
   for (let i = 0; i < questionArray.length; i++) {
-    userAnswer = prompt(questionArray[i].question); // local scope 
+    userAnswer = prompt(questionArray[i].question); 
     userAnswer = userAnswer.toUpperCase();
     if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
       feedbackString = "Correct! ";
@@ -60,8 +63,11 @@ function guessingGame() {
       feedbackString = "Incorrect! ";
     }
     feedbackString += questionArray[i].info; // fact about me
+    console.log(feedbackString);
     alert(feedbackString); // displays the compiled feedback message to user
   };
+  console.log(`Thanks for taking some time to get to know me better, ${userName}!`);
+  alert(`Thanks for taking some time to get to know me better, ${userName}!`);
 };
 
 document.getElementById("start").addEventListener("click", guessingGame);
