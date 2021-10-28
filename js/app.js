@@ -4,21 +4,21 @@ let userName; // global scope
 while (!userName) { // catches all cases of no name input
   userName = prompt("Hey there! I'm Andrew. What is your name?");
   if (userName === null) {
-    console.log("Oh, no worries. Bye!");
+    console.log("User canceled");
     alert("Oh, no worries. Bye!");
     break;
   } else if (userName) {
-    console.log(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
+    console.log(`Welcome message for ${userName}`);
     alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
   } else {
-    console.log("Sorry, I didn't have my hearing aids in...");
+    console.log("User clicked 'okay' without entering name");
     alert("Sorry, I didn't have my hearing aids in...");
   }
 };
 
 function guessingGame() {
 
-  if (userName === null) { // assigns a name in case user cancelled/didn't enter a name
+  if (userName === null) { // assigns a name in case user canceled/didn't enter a name
     userName = `so-and-so`;
   }
   let score = 0;
@@ -52,20 +52,22 @@ function guessingGame() {
     }
   ];
 
-  // for (let i = 0; i < questionArray.length; i++) {
-  //   userAnswer = prompt(questionArray[i].question); 
-  //   userAnswer = userAnswer.toUpperCase();
-  //   if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
-  //     feedbackString = "Correct! ";
-  //   } else if (userAnswer === null) {
-  //     break; // cancel button
-  //   } else { // userAnswer is wrong or invalid
-  //     feedbackString = "Incorrect! ";
-  //   }
-  //   feedbackString += questionArray[i].info; // fact about me
-  //   console.log(feedbackString);
-  //   alert(feedbackString); // displays the compiled feedback message to user
-  // };
+  for (let i = 0; i < questionArray.length; i++) {
+    userAnswer = prompt(questionArray[i].question); 
+    userAnswer = userAnswer.toUpperCase();
+    if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
+      feedbackString = "Correct! ";
+      score++;
+      console.log(`Correct answer. Current Score: ${score}/7`);
+    } else if (userAnswer === null) {
+      break; // cancel button
+    } else { // userAnswer is wrong or invalid
+      feedbackString = "Incorrect! ";
+    }
+    feedbackString += questionArray[i].info + ` Current Score: ${score}/7`; // concats fact about me
+    console.log(feedbackString, `Current Score: ${score}/7`);
+    alert(feedbackString); // displays the compiled feedback message to user
+  };
 
   let randomNum = Math.floor((Math.random() * 100) + 1);
   for (let i = 0; i < 4; i++) {
@@ -73,8 +75,9 @@ function guessingGame() {
     let numGuess = prompt(`I'M THINKING OF A NUMBER BETWEEN 1 AND 100... Take a guess! You've got ${tries} tries.`);
     numGuess = parseInt(numGuess);
     if (numGuess === randomNum) {
-      alert(`That's CORRECT! Great job!`);
       score++;
+      console.log(`Correct number guess. Current Score: ${score}/7`);
+      alert(`That's CORRECT! Great job! Current Score: ${score}/7`);
       console.log(score);
       break;
     }
@@ -83,34 +86,42 @@ function guessingGame() {
     if (i === 3) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
   }
 
-  for (let i = 6; i > 0; i--) {
-    let nameArray = [
-      "RACHEL",
-      "JUDY",
-      "SARAH",
-      "CATHY",
-      "DOUG"
-    ]
-    let tries = 6;
-    let nameGuess = prompt(`I have three sisters, a mother, and a father all with common names. Can you guess any of their names in ${tries} tries? (Only guess ONE name at a time.)`);
+
+  const nameArray = [
+    "RACHEL",
+    "JUDY",
+    "SARAH",
+    "CATHY",
+    "DOUG"
+  ];
+
+  for (let i = 6; i > 0; i--) { // iterates through guesses
+    
+    let correctName = false;
+    let nameGuess = prompt(`I have three sisters, a mother, and a father all with common names. 
+    Can you guess one of their names in ${i} tries? (Only guess ONE name at a time.)`);
     nameGuess = nameGuess.toUpperCase();
-    for (let i = 0; i < nameArray.length; i++) {
+
+    for (let i = 0; i < nameArray.length; i++) { // iterates through array 
       if (nameGuess === nameArray[i]) {
+        console.log(`Correct name guess. Current Score: ${score}/7`);
         alert(`That's CORRECT! Great job!`);
         score++;
         console.log(score);
-        break;
+        correctName = true;
+        break; // breaks inner loop
       } 
-    } alert(`Sorry! Nobody with the name ${nameGuess} in my family!`);
-    if (i === 5) alert(`Bummer, you're all out of guesses! My family's names are ${nameArray}.`);
+    } 
+    if (correctName) break; // breaks outer loop
+    alert(`Sorry! Nobody with the name ${nameGuess} in my family!`);
+    if (i === 1) alert(`Bummer, you're all out of guesses!`);
   }
+  alert(`My family's names are ${nameArray}.`) // This output is wonky. Will clean up with array/string methods in next lab.
 
-
-
-  console.log(`Thanks for taking some time to get to know me better, ${userName}!`);
-  alert(`Thanks for taking some time to get to know me better, ${userName}!`);
+  console.log(`Game end message to ${userName}. Final score: ${score}/7`);
+  alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
 };
 
 document.getElementById("start").addEventListener("click", guessingGame);
 
-// TODO: Add score incrementer to first 5
+

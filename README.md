@@ -3,7 +3,7 @@
 ## Resources Used
 
 - CSS reset from <https://meyerweb.com/eric/tools/css/reset/>
-- [ ]
+- list of cat Instagram accounts curated by Rachel Taylor
 
 ## Instructions
 
@@ -29,19 +29,19 @@
 
 - [x] Convert work experience and education summary into an unordered list using HTML
 
-- [ ] Add 6th question to the guessing game that takes in a numeric input by prompting the user to guess a number.
-  - [ ] Indicates through an alert if the guess is “too high” or “too low”.
-  - [ ] give the user exactly four opportunities to get the correct answer.
-  - [ ] After all attempts exhausted, tell the user the correct answer.
+- [x] Add 6th question to the guessing game that takes in a numeric input by prompting the user to guess a number.
+  - [x] Indicates through an alert if the guess is “too high” or “too low”.
+  - [x] give the user exactly four opportunities to get the correct answer.
+  - [x] After all attempts exhausted, tell the user the correct answer.
 
-- [ ] Add 7th question
-  - [ ] has multiple possible correct answers that are stored in an array.
-  - [ ] Give the user 6 attempts to guess the correct answer.
-  - [ ] The guesses will end once the user guesses a correct answer or they run out of attempts.
-  - [ ] Display all the possible correct answers to the user.
+- [x] Add 7th question
+  - [x] has multiple possible correct answers that are stored in an array.
+  - [x] Give the user 6 attempts to guess the correct answer.
+  - [x] The guesses will end once the user guesses a correct answer or they run out of attempts.
+  - [x] Display all the possible correct answers to the user.
 
-- [ ] At the end alert how many they got correct out of the 7 questions asked.
+- [x] At the end alert how many they got correct out of the 7 questions asked.
 
 Optional
 
-- [ ] Make the number-guessing question use a random number as its correct answer.
+- [x] Make the number-guessing question use a random number as its correct answer.
