@@ -15,6 +15,9 @@ while (userName === undefined) {
 
 function guessingGame() {
 
+  if (userName === null) { // assigns a name in case user cancelled/didn't enter a name
+    userName = "So-and-so";
+  };
   
   let userAnswer;
   let feedbackString = '';
