@@ -77,9 +77,8 @@ function guessingGame() {
   // question 6
   function numberGuessing() {
     let randomNum = Math.floor((Math.random() * 100) + 1);
-    for (let i = 0; i < 4; i++) {
-      let tries = Math.abs(i - 4);
-      let numGuess = prompt(`I'M THINKING OF A NUMBER BETWEEN 1 AND 100... Take a guess! You've got ${tries} tries.`);
+    for (let i = 4; i > 0; i--) {
+      let numGuess = prompt(`I'M THINKING OF A NUMBER BETWEEN 1 AND 100... Take a guess! You've got ${i} tries.`);
       numGuess = parseInt(numGuess);
       if (numGuess === randomNum) {
         score++;
@@ -90,7 +89,7 @@ function guessingGame() {
       }
       if (numGuess > randomNum) alert(`Hmm, that's too high.`);
       if (numGuess < randomNum) alert(`Bummer. That's too low!`);
-      if (i === 3) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
+      if (i === 1) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
     }
   }
 
