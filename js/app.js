@@ -56,7 +56,6 @@ function guessingGame() {
       }
     ];
 
-
     for (let i = 0; i < questionArray.length; i++) {
       userAnswer = prompt(questionArray[i].question);
       userAnswer = userAnswer.toUpperCase();
@@ -74,8 +73,6 @@ function guessingGame() {
       alert(feedbackString); // displays the compiled feedback message to user
     };
   }
-
-  aboutMeGuessing();
 
   // question 6
   function numberGuessing() {
@@ -96,8 +93,6 @@ function guessingGame() {
       if (i === 3) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
     }
   }
-
-  numberGuessing();
 
   function nameGuessing() {
     const nameArray = [
@@ -130,12 +125,14 @@ function guessingGame() {
       if (i === 1) alert(`Bummer, you're all out of guesses!`);
     }
     alert(`My family's names are ${nameArray}.`) // This output is wonky. Will clean up with array/string methods in next lab.
-
-    console.log(`Game end message to ${userName}. Final score: ${score}/7`);
-    alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
   }
 
+  aboutMeGuessing();
+  numberGuessing();
   nameGuessing();
+
+  console.log(`Game end message to ${userName}. Final score: ${score}/7`);
+  alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
 }
 
 document.getElementById("start").addEventListener("click", guessingGame);
