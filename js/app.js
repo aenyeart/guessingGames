@@ -46,7 +46,7 @@ function guessingGame() {
       info: `I don't work on cars for fun. I currently enjoy training my cat Cynar, strength training, and DIY home improvement projects for my small studio.`
     },
     {
-      question: `Last question! AM I AN ALGORITHM?  (Y/N)`,
+      question: `AM I AN ALGORITHM?  (Y/N)`,
       answer: 'Y',
       info: `From a materialistic lens, ALL of our minds are nothing but algorithms. And if our minds are WHO we are, then we are ALL algorithms. The upshot of this is that every impression we form of another person is literally an approximated model of THAT person's algorithms--their mind--that we have constructed and stored in our OWN mind! So, even after we physically die, as long as someone somewhere is alive and capable of thinking, 'If ${userName} were here, they would totally say/do/think such-and-such right now!', there is certainly a part of YOU that lives on in a conscious mind despite your body's death.`
     }
