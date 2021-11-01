@@ -1,4 +1,5 @@
-# lab-02
+# Guessing Games
+A little about me page, with a guessing game that gives you a chance to get to know me even better.
 
 ## Resources Used
 
