@@ -1,23 +1,18 @@
 'use strict';
-// TODO: 
-// package questions 1-5, 6, & 7 into functions
 
 let userName; // global scope
 getUserName();
 
-
-
-
-function guessingGame() {
-  // questions 1-5
+function guessingGame() { // called by eventListener on button
   let score = 0;
-
   aboutMeGuessing();
   numberGuessing();
   nameGuessing();
+  alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
 
+  // questions 1-5
   function aboutMeGuessing() {
-    if (userName === null) { // assigns a name in case user canceled/didn't enter a name
+    if (userName === null) { // assigns a name if user canceled/didn't enter a name
       userName = `so-and-so`;
     }
     let userAnswer; // local scope 
@@ -65,8 +60,8 @@ function guessingGame() {
       feedbackString += questionArray[i].info + ` Current Score: ${score}/7`; // concats fact about me
       console.log(feedbackString, `Current Score: ${score}/7`);
       alert(feedbackString); // displays the compiled feedback message to user
-    };
-  }
+    }
+  } // END of aboutMeGuessing()
 
   // question 6
   function numberGuessing() {
@@ -85,8 +80,9 @@ function guessingGame() {
       if (numGuess < randomNum) alert(`Bummer. That's too low!`);
       if (i === 1) alert(`Sorry, you're all out of guesses! The correct number was ${randomNum}.`);
     }
-  }
-
+  } // END of numberGuessing()
+  
+  // question 7
   function nameGuessing() {
     const nameArray = [
       "RACHEL",
@@ -115,11 +111,10 @@ function guessingGame() {
       alert(`Sorry! Nobody with the name ${nameGuess} in my family!`);
       if (i === 1) alert(`Bummer, you're all out of guesses!`);
     }
-    alert(`My family's names are ${nameArray}.`) // This output is wonky. Will clean up with array/string methods in next lab.
-  }
-  
-  alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
-}
+    alert(`My family's names are ${nameArray}.`) 
+  } // END of nameGuessing()
+
+} // END of guessingGame()
 
 function getUserName() { // catches all cases of no name input
   while (!userName) {
@@ -132,7 +127,7 @@ function getUserName() { // catches all cases of no name input
     } else {
       alert("Sorry, I didn't have my hearing aids in...");
     }
-  };
-}
+  }
+} // END of getUserName()
 
 document.getElementById("start").addEventListener("click", guessingGame);
