@@ -46,7 +46,6 @@ h3 {
   line-height: 1.2em;
   font-family: 'Lora', serif;
   margin: 1.5rem 0;
-  /* color: #2263A1; */
 }
 p {
   margin: 1rem ;
@@ -91,15 +90,12 @@ li {
 }
 #catlist, #experience{
   margin: 1.5rem 3rem;
-  /* width: 40%; */
 }
 #start {
-
-  /* color: #586070; */
   background-color: #EAE2D7;
-    color: #FE6F71;
-    border: solid 4px #FE6F71;;
-    border-radius: 8px;  
+  color: #FE6F71;
+  border: solid 4px #FE6F71;;
+  border-radius: 8px;  
   display: block;
   width: 100px;
   height: 100px;
