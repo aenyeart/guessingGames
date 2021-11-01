@@ -3,29 +3,23 @@
 // package questions 1-5, 6, & 7 into functions
 
 let userName; // global scope
-while (!userName) { // catches all cases of no name input
-  userName = prompt("Hey there! I'm Andrew. What is your name?");
-  if (userName === null) {
-    console.log("User canceled");
-    alert("Oh, no worries. Bye!");
-    break;
-  } else if (userName) {
-    console.log(`Welcome message for ${userName}`);
-    alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
-  } else {
-    console.log("User clicked 'okay' without entering name");
-    alert("Sorry, I didn't have my hearing aids in...");
-  }
-};
+getUserName();
+
+
+
 
 function guessingGame() {
-
   // questions 1-5
+  let score = 0;
+
+  aboutMeGuessing();
+  numberGuessing();
+  nameGuessing();
+
   function aboutMeGuessing() {
     if (userName === null) { // assigns a name in case user canceled/didn't enter a name
       userName = `so-and-so`;
     }
-    let score = 0;
     let userAnswer; // local scope 
     let feedbackString = '';
     const questionArray = [ // array of objects to avoid nested loops
@@ -111,10 +105,8 @@ function guessingGame() {
 
       for (let i = 0; i < nameArray.length; i++) { // iterates through array 
         if (nameGuess === nameArray[i]) {
-          console.log(`Correct name guess. Current Score: ${score}/7`);
           alert(`That's CORRECT! Great job!`);
           score++;
-          console.log(score);
           correctName = true;
           break; // breaks inner loop
         }
@@ -125,15 +117,22 @@ function guessingGame() {
     }
     alert(`My family's names are ${nameArray}.`) // This output is wonky. Will clean up with array/string methods in next lab.
   }
-
-  aboutMeGuessing();
-  numberGuessing();
-  nameGuessing();
-
-  console.log(`Game end message to ${userName}. Final score: ${score}/7`);
+  
   alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
 }
 
+function getUserName() { // catches all cases of no name input
+  while (!userName) {
+    userName = prompt("Hey there! I'm Andrew. What is your name?");
+    if (userName === null) {
+      alert("Oh, no worries. Bye!");
+      break;
+    } else if (userName) {
+      alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
+    } else {
+      alert("Sorry, I didn't have my hearing aids in...");
+    }
+  };
+}
+
 document.getElementById("start").addEventListener("click", guessingGame);
-
-
