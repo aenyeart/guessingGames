@@ -4,14 +4,11 @@ let userName; // global scope
 while (!userName) { // catches all cases of no name input
   userName = prompt("Hey there! I'm Andrew. What is your name?");
   if (userName === null) {
-    console.log("User canceled");
     alert("Oh, no worries. Bye!");
     break;
   } else if (userName) {
-    console.log(`Welcome message for ${userName}`);
     alert(`Thanks for dropping in, ${userName}! I heard you wanted to get to know me a little... I'll give you some info about me and then we'll play a guessing game!`);
   } else {
-    console.log("User clicked 'okay' without entering name");
     alert("Sorry, I didn't have my hearing aids in...");
   }
 };
@@ -58,14 +55,12 @@ function guessingGame() {
     if (userAnswer === questionArray[i].answer || questionArray[i].answer === "SUBJECTIVE") { // userAnswer is correct 
       feedbackString = "Correct! ";
       score++;
-      console.log(`Correct answer. Current Score: ${score}/7`);
     } else if (userAnswer === null) {
       break; // cancel button
     } else { // userAnswer is wrong or invalid
       feedbackString = "Incorrect! ";
     }
     feedbackString += questionArray[i].info + ` Current Score: ${score}/7`; // concats fact about me
-    console.log(feedbackString, `Current Score: ${score}/7`);
     alert(feedbackString); // displays the compiled feedback message to user
   };
 
@@ -76,9 +71,7 @@ function guessingGame() {
     numGuess = parseInt(numGuess);
     if (numGuess === randomNum) {
       score++;
-      console.log(`Correct number guess. Current Score: ${score}/7`);
       alert(`That's CORRECT! Great job! Current Score: ${score}/7`);
-      console.log(score);
       break;
     }
     if (numGuess > randomNum) alert(`Hmm, that's too high.`);
@@ -104,10 +97,8 @@ function guessingGame() {
 
     for (let i = 0; i < nameArray.length; i++) { // iterates through array 
       if (nameGuess === nameArray[i]) {
-        console.log(`Correct name guess. Current Score: ${score}/7`);
         alert(`That's CORRECT! Great job!`);
         score++;
-        console.log(score);
         correctName = true;
         break; // breaks inner loop
       } 
@@ -118,7 +109,6 @@ function guessingGame() {
   }
   alert(`My family's names are ${nameArray}.`) // This output is wonky. Will clean up with array/string methods in next lab.
 
-  console.log(`Game end message to ${userName}. Final score: ${score}/7`);
   alert(`Thanks for taking some time to get to know me better, ${userName}! Your final score was ${score} out of 7!`);
 };
 
